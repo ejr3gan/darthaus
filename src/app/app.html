@@ -1,0 +1,27 @@
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand" routerLink="/">The Dart Haus</a>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="Toggle navigation"
+      aria-controls="primary-nav"
+      [attr.aria-expanded]="navOpen()"
+      (click)="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links" id="primary-nav" [class.open]="navOpen()">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeNav()">Home</a>
+      <a routerLink="/try-before-you-buy" routerLinkActive="active" (click)="closeNav()">Try Before You Buy</a>
+      <a routerLink="/junior-tutoring" routerLinkActive="active" (click)="closeNav()">Junior Tutoring</a>
+      <a routerLink="/repointing-refurb" routerLinkActive="active" (click)="closeNav()">Repointing & Refurb</a>
+      <a routerLink="/expert-advice" routerLinkActive="active" (click)="closeNav()">Expert Advice</a>
+      <a routerLink="/quality-gear" routerLinkActive="active" (click)="closeNav()">Quality Gear</a>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
