@@ -10,7 +10,6 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
       <div class="container">
         <div class="feature-hero">
           <div>
-            <div class="eyebrow">Feature</div>
             <h1 class="hero-title">{{ featureTitle }}</h1>
             <p class="hero-subtitle">{{ featureSubtitle }}</p>
             <p class="hero-body">{{ featureBody }}</p>
