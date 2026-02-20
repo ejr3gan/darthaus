@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies & build
         run: |
           npm install
-          npm run build
+          npm run build -- --base-href=/darthaus/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
