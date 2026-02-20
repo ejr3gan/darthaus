@@ -3,6 +3,7 @@
     <a class="brand" routerLink="/">The Dart Haus</a>
     <button
       class="nav-toggle"
+      [class.open]="navOpen()"
       type="button"
       aria-label="Toggle navigation"
       aria-controls="primary-nav"
@@ -20,6 +21,7 @@
       <a routerLink="/expert-advice" routerLinkActive="active" (click)="closeNav()">Expert Advice</a>
       <a routerLink="/quality-gear" routerLinkActive="active" (click)="closeNav()">Quality Gear</a>
     </div>
+    <button class="nav-backdrop" type="button" [class.open]="navOpen()" (click)="closeNav()" aria-label="Close navigation"></button>
   </div>
 </nav>
 
