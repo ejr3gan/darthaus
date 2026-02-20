@@ -1,0 +1,37 @@
+name: Deploy AngularJS app to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # If you still need to build (most AngularJS projects already have dist committed or pre-built)
+      # Uncomment/adjust if needed:
+      - name: Install dependencies & build
+        run: |
+          npm install    # or yarn install
+          npm run build  # or grunt build / gulp build etc.
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist          # ← change if your folder is called something else (e.g. build, www)
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
