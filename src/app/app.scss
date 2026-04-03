@@ -155,7 +155,7 @@
 
 .hero-meta {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	gap: 1rem;
 }
 
@@ -193,10 +193,60 @@
 	font-size: 0.95rem;
 }
 
+.meta-contact {
+	margin-top: 0.5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.15rem;
+}
+
+.meta-contact a {
+	color: rgba(15, 17, 21, 0.82);
+	text-decoration: none;
+	font-size: 0.95rem;
+	border-bottom: 1px solid transparent;
+	width: fit-content;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.meta-contact a:hover,
+.meta-contact a:focus {
+	color: var(--ember);
+	border-color: rgba(177, 30, 45, 0.45);
+}
+
 .meta-list {
 	margin: 0.5rem 0 0;
 	padding-left: 1.1rem;
 	color: rgba(15, 17, 21, 0.7);
+}
+
+.brands-stock {
+	grid-column: 1 / -1;
+}
+
+.brands-stock:hover {
+	transform: none;
+	box-shadow: var(--shadow);
+	border-color: rgba(0, 66, 37, 0.18);
+}
+
+.brand-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.8rem;
+	margin-top: 0.75rem;
+}
+
+.brand-grid img {
+	width: 100%;
+	height: 86px;
+	object-fit: contain;
+	object-position: center;
+	border-radius: 10px;
+	border: 1px solid rgba(0, 66, 37, 0.2);
+	background: #fff;
+	padding: 0.35rem;
 }
 
 .hero-panel {
@@ -229,12 +279,7 @@
 	padding: 1.2rem;
 	box-shadow: 0 16px 35px rgba(12, 12, 12, 0.12);
 	margin-bottom: 1.5rem;
-	transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.hero-logo:hover {
-	transform: translateY(-4px) rotate(-0.6deg);
-	box-shadow: 0 22px 44px rgba(12, 12, 12, 0.18);
+	transition: none;
 }
 
 .hero-logo img {
@@ -242,22 +287,85 @@
 }
 
 
-.notice {
+.review-carousel {
 	background: rgba(0, 66, 37, 0.95);
 	color: #fff;
 	padding: 1.2rem 1.3rem;
 	border-radius: 18px;
+	display: flex;
+	flex-direction: column;
+	height: 320px;
+	gap: 0.55rem;
 }
 
-.notice-pill {
-	display: inline-block;
+.review-head {
 	font-size: 0.7rem;
 	text-transform: uppercase;
 	letter-spacing: 0.12rem;
-	padding: 0.35rem 0.75rem;
+	font-weight: 600;
+	color: rgba(255, 255, 255, 0.85);
+}
+
+.review-content.animate {
+	animation: fadeUp 420ms ease;
+}
+
+.review-content {
+	flex: 1;
+	min-height: 0;
+	overflow-y: auto;
+	padding-right: 0.3rem;
+}
+
+.review-quote {
+	margin: 0;
+	font-size: 1rem;
+	line-height: 1.6;
+	font-weight: 500;
+}
+
+.review-author {
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+.review-detail {
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.75);
+}
+
+.review-controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.7rem;
+	margin-top: 0.35rem;
+}
+
+.review-btn {
+	border: 1px solid rgba(255, 255, 255, 0.45);
+	background: rgba(255, 255, 255, 0.08);
+	color: #fff;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
 	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.2);
-	margin-bottom: 0.6rem;
+	font-size: 1rem;
+	line-height: 1;
+	font-weight: 600;
+	transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.review-btn:hover,
+.review-btn:focus {
+	background: rgba(255, 255, 255, 0.18);
+	border-color: rgba(255, 255, 255, 0.68);
+}
+
+.review-index {
+	font-size: 0.82rem;
+	color: rgba(255, 255, 255, 0.82);
+	letter-spacing: 0.02rem;
 }
 
 .feature-grid {
@@ -440,6 +548,28 @@
 	color: rgba(15, 17, 21, 0.65);
 }
 
+.footer-contact {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem 1rem;
+	font-size: 0.95rem;
+	font-weight: 500;
+}
+
+.footer-contact a {
+	color: rgba(15, 17, 21, 0.82);
+	text-decoration: none;
+	border-bottom: 1px solid transparent;
+	transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.footer-contact a:hover,
+.footer-contact a:focus {
+	color: var(--ember);
+	border-color: rgba(177, 30, 45, 0.45);
+}
+
 .footer-sub {
 	font-size: 0.9rem;
 }
@@ -568,6 +698,14 @@
 		grid-template-columns: 1fr;
 	}
 
+	.review-carousel {
+		height: 300px;
+	}
+
+	.brand-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
 	.hero-panel {
 		order: -1;
 	}
@@ -583,6 +721,10 @@
 		font-size: 1.42rem;
 	}
 
+	.hero-meta {
+		grid-template-columns: 1fr;
+	}
+
 	.page {
 		padding: 2rem 0 3rem;
 	}
@@ -591,7 +733,19 @@
 		font-size: 3rem;
 	}
 
+	.review-carousel {
+		height: 290px;
+	}
+
 	.cta-group {
 		flex-direction: column;
+	}
+
+	.brand-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.brand-grid img {
+		height: 94px;
 	}
 }

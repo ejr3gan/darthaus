@@ -2,7 +2,7 @@
   <div class="container">
     <header class="hero">
       <div class="hero-copy">
-        <div class="eyebrow fade-up">Ross-on-Wye • Opening 2026</div>
+        <div class="eyebrow fade-up">Ross-on-Wye • EST 2026</div>
         <h1 class="hero-title fade-up stagger-1">The Dart Haus</h1>
         <p class="hero-subtitle fade-up stagger-2">A premium, hands-on darts shop with real coaching and serious gear.</p>
         <p class="hero-body fade-up stagger-3">We are building a home for players who care about feel, flight, and rhythm. If you want a better throw, a better setup, or a place that understands the oche, you are in the right room.</p>
@@ -11,9 +11,13 @@
         </div>
         <div class="hero-meta fade-up stagger-5">
           <div class="meta-card">
-            <div class="meta-label">Location</div>
+            <div class="meta-label">Contact</div>
             <div class="meta-value">Unit 4, Haigh Industrial Estate</div>
             <div class="meta-sub">Ross-on-Wye, HR9 5LA</div>
+            <div class="meta-contact">
+              <a href="tel:07877254974">07877 254974</a>
+              <a href="mailto:thedarthaus26@outlook.com">thedarthaus26@outlook.com</a>
+            </div>
           </div>
           <div class="meta-card">
             <div class="meta-label">What to expect</div>
@@ -23,15 +27,35 @@
               <li>Curated gear, honest recommendations</li>
             </ul>
           </div>
+          <div class="meta-card brands-stock" aria-label="Brands we stock">
+            <div class="meta-label">Brands we stock</div>
+            <div class="brand-grid">
+              <img src="assets/target_darts_logo.jpg" alt="Target Darts logo" loading="lazy">
+              <img src="assets/unicorn_darts_logo.png" alt="Unicorn Darts logo" loading="lazy">
+              <img src="assets/shot_darts_logo.jpg" alt="Shot Darts logo" loading="lazy">              
+              <img src="assets/harrows_darts_logo.png" alt="Harrows Darts logo" loading="lazy">
+              <img src="assets/target_japan_darts_logo.png" alt="Target Japan Darts logo" loading="lazy">
+              <img src="assets/mission_darts_logo.png" alt="Mission Darts logo" loading="lazy">              
+            </div>
+          </div>
         </div>
       </div>
       <div class="hero-panel fade-up stagger-2">
         <div class="hero-logo">
           <img src="assets/dart_haus_logo.jpg" alt="The Dart Haus Logo">
         </div>
-        <div class="notice">
-          <span class="notice-pill">No online store yet</span>
-          <p>We are building a shop, watch this space!.</p>
+        <div class="review-carousel" aria-label="Customer reviews" (mouseenter)="pauseAutoRotate()" (mouseleave)="resumeAutoRotate()">
+          <div class="review-head">Player Reviews</div>
+          <div class="review-content" [class.animate]="isReviewAnimating">
+            <blockquote class="review-quote">“{{ reviews[currentReviewIndex].quote }}”</blockquote>
+            <div class="review-author">{{ reviews[currentReviewIndex].author }}</div>
+            <div class="review-detail">{{ reviews[currentReviewIndex].detail }}</div>
+          </div>
+          <div class="review-controls">
+            <button class="review-btn" type="button" (click)="previousReview()" aria-label="Back review">&#8592;</button>
+            <span class="review-index">{{ currentReviewIndex + 1 }} / {{ reviews.length }}</span>
+            <button class="review-btn" type="button" (click)="nextReview()" aria-label="Forward review">&#8594;</button>
+          </div>
         </div>
       </div>
     </header>
@@ -93,23 +117,26 @@
     <section class="map-section" id="map" aria-label="Location map">
       <div class="section-head">
         <h2>Find us in Ross-on-Wye</h2>
-        <p>Unit 4, Haigh Industrial Estate, Ross-on-Wye, HR9 5LA</p>
+        <p>4, Cropper Row, Haigh Industrial Estate, Ross-on-Wye HR9 5LA</p>
       </div>
       <div class="map-card">
         <iframe
           title="The Dart Haus location"
-          src="https://www.google.com/maps?q=Haigh%20Industrial%20Estate,%20Ross-on-Wye,%20HR9%205LA&output=embed"
+          src="https://www.google.com/maps?q=The%20Dart%20Haus%2C%20Unit%204%2C%20Haigh%20Industrial%20Estate%2C%20Ross-on-Wye%2C%20HR9%205LA&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade">
         </iframe>
         <div class="map-actions">
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Haigh%20Industrial%20Estate,%20Ross-on-Wye,%20HR9%205LA" target="_blank" rel="noopener">Open in Google Maps</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=The%20Dart%20Haus%2C%20Unit%204%2C%20Haigh%20Industrial%20Estate%2C%20Ross-on-Wye%2C%20HR9%205LA" target="_blank" rel="noopener">Open in Google Maps</a>
         </div>
       </div>
     </section>
 
     <footer class="site-footer">
-      <div>Opening soon in Ross-on-Wye.</div>
+      <div class="footer-contact" aria-label="Contact details">
+        <a href="tel:07877254974">07877 254974</a>
+        <a href="mailto:thedarthaus26@outlook.com">thedarthaus26@outlook.com</a>
+      </div>
       <div class="footer-sub">&copy; 2026 The Dart Haus</div>
     </footer>
   </div>
