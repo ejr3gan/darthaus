@@ -24,6 +24,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
                   <img src="assets/target_japan_darts_logo.png" alt="Target Japan Darts logo" loading="lazy">
                   <img src="assets/mission_darts_logo.png" alt="Mission Darts logo" loading="lazy">  
                 </div>
+                <p class="brand-note">These are just a few of the brands we stock. New lines arrive all the time.</p>
               </div>
             }
             <div class="cta-group mt-3">
