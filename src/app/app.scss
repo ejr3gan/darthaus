@@ -84,7 +84,7 @@
 	display: grid;
 	grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
 	gap: 2.5rem;
-	align-items: center;
+	align-items: stretch;
 	margin-bottom: 3.5rem;
 }
 
@@ -206,6 +206,10 @@
 
 #contact {
 	scroll-margin-top: 6.5rem;
+}
+
+#reach-us {
+	scroll-margin-top: 6rem;
 }
 
 #map,
@@ -330,6 +334,8 @@
 }
 
 .hero-panel {
+	display: flex;
+	flex-direction: column;
 	background: linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(233, 245, 236, 0.8));
 	border-radius: 28px;
 	padding: 2rem;
@@ -355,11 +361,12 @@
 
 .hero-photo {
 	position: relative;
+	flex: 1 1 auto;
+	min-height: 240px;
 	border-radius: 20px;
 	overflow: hidden;
 	margin-bottom: 1.5rem;
 	box-shadow: 0 16px 35px rgba(12, 12, 12, 0.18);
-	aspect-ratio: 16 / 10;
 }
 
 .hero-photo img {
@@ -405,6 +412,7 @@
 	border-radius: 18px;
 	display: flex;
 	flex-direction: column;
+	flex: 0 0 auto;
 	height: 320px;
 	gap: 0.55rem;
 }

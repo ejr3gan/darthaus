@@ -1,3 +1,4 @@
+import { ViewportScroller } from '@angular/common';
 import { Component, ViewEncapsulation, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
@@ -11,6 +12,11 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('dart-haus');
   protected readonly navOpen = signal(false);
+
+  constructor(viewportScroller: ViewportScroller) {
+    // Offset in-page anchor scrolling so targets clear the sticky nav.
+    viewportScroller.setOffset([0, 90]);
+  }
 
   protected toggleNav(): void {
     this.navOpen.update((open) => !open);
