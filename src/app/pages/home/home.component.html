@@ -52,8 +52,11 @@
         </div>
       </div>
       <div class="hero-panel fade-up stagger-2">
-        <div class="hero-logo">
-          <img src="assets/dart_haus_logo.jpg" alt="The Dart Haus Logo">
+        <div class="hero-photo">
+          <img src="assets/shop-hero.webp" alt="Inside The Dart Haus — practice oches on the floor and a full wall of darts" width="680" height="510">
+          <div class="hero-photo-badge">
+            <img src="assets/dart_haus_logo.jpg" alt="The Dart Haus logo">
+          </div>
         </div>
         <div class="review-carousel" aria-label="Customer reviews" (mouseenter)="pauseAutoRotate()" (mouseleave)="resumeAutoRotate()">
           <div class="review-head">Player Reviews</div>
@@ -63,9 +66,17 @@
             <div class="review-detail">{{ reviews[currentReviewIndex].detail }}</div>
           </div>
           <div class="review-controls">
-            <button class="review-btn" type="button" (click)="previousReview()" aria-label="Back review">&#8592;</button>
+            <button class="review-btn" type="button" (click)="previousReview()" aria-label="Previous review">&#8592;</button>
             <span class="review-index">{{ currentReviewIndex + 1 }} / {{ reviews.length }}</span>
-            <button class="review-btn" type="button" (click)="nextReview()" aria-label="Forward review">&#8594;</button>
+            <button
+              class="review-btn"
+              type="button"
+              (click)="toggleAutoRotate()"
+              [attr.aria-pressed]="isPaused"
+              [attr.aria-label]="isPaused ? 'Play automatic review rotation' : 'Pause automatic review rotation'">
+              <i class="fa-solid" [class.fa-play]="isPaused" [class.fa-pause]="!isPaused" aria-hidden="true"></i>
+            </button>
+            <button class="review-btn" type="button" (click)="nextReview()" aria-label="Next review">&#8594;</button>
           </div>
         </div>
       </div>

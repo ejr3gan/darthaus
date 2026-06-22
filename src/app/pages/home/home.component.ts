@@ -28,12 +28,22 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   currentReviewIndex = 0;
   isReviewAnimating = true;
+  isPaused = false;
   private readonly autoRotateMs = 6000;
   private autoRotateTimerId: ReturnType<typeof setInterval> | null = null;
 
   constructor(private readonly cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    const prefersReducedMotion =
+      typeof window !== 'undefined' &&
+      window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      this.isPaused = true;
+      return;
+    }
+
     this.startAutoRotate();
   }
 
@@ -56,7 +66,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   resumeAutoRotate(): void {
-    this.startAutoRotate();
+    if (!this.isPaused) {
+      this.startAutoRotate();
+    }
+  }
+
+  toggleAutoRotate(): void {
+    this.isPaused = !this.isPaused;
+
+    if (this.isPaused) {
+      this.stopAutoRotate();
+    } else {
+      this.startAutoRotate();
+    }
   }
 
   private startAutoRotate(): void {

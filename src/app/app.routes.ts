@@ -6,7 +6,7 @@ export const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'The Dart Haus'
+    title: 'The Dart Haus | Darts Shop & Coaching in Ross-on-Wye'
   },
   {
     path: 'try-before-you-buy',
