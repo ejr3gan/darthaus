@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { VideoComponent } from '../../components/video/video.component';
 
 interface ServiceLink {
   path: string;
@@ -10,6 +11,11 @@ interface ServiceLink {
 interface FeatureImage {
   src: string;
   alt: string;
+}
+
+interface FeatureVideo {
+  id: string;
+  title: string;
 }
 
 const ALL_SERVICES: ServiceLink[] = [
@@ -23,7 +29,7 @@ const ALL_SERVICES: ServiceLink[] = [
 @Component({
   selector: 'app-feature',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, VideoComponent],
   template: `
     <section class="page feature-page">
       <div class="container">
@@ -63,6 +69,13 @@ const ALL_SERVICES: ServiceLink[] = [
                 </li>
               }
             </ul>
+          </section>
+        }
+
+        @if (video) {
+          <section class="feature-video fade-up stagger-1" aria-label="Watch">
+            <h2>Watch</h2>
+            <app-video [videoId]="video.id" [title]="video.title" />
           </section>
         }
 
@@ -114,6 +127,7 @@ export class FeatureComponent {
   protected readonly highlights: string[];
   protected readonly heroImage: FeatureImage | null;
   protected readonly gallery: FeatureImage[];
+  protected readonly video: FeatureVideo | null;
   protected readonly showBrandsStock: boolean;
   protected readonly relatedServices: ServiceLink[];
 
@@ -128,6 +142,7 @@ export class FeatureComponent {
     this.highlights = data['highlights'] ?? [];
     this.heroImage = data['heroImage'] ?? null;
     this.gallery = data['gallery'] ?? [];
+    this.video = data['video'] ?? null;
 
     const currentPath = this.route.snapshot.routeConfig?.path ?? '';
     this.showBrandsStock = currentPath === 'quality-gear';

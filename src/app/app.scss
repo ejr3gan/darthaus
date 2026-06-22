@@ -606,7 +606,8 @@
 	margin-top: 1.5rem;
 }
 
-.feature-gallery {
+.feature-gallery,
+.feature-video {
 	margin-top: 2rem;
 }
 
@@ -628,6 +629,7 @@
 
 .feature-highlights h2,
 .feature-gallery h2,
+.feature-video h2,
 .related-services h2 {
 	font-family: "Bebas Neue", "Space Grotesk", sans-serif;
 	font-size: clamp(1.8rem, 3vw, 2.4rem);
@@ -783,6 +785,8 @@
 }
 
 .storefront-card {
+	position: relative;
+	min-height: 240px;
 	border-radius: 24px;
 	overflow: hidden;
 	box-shadow: var(--shadow);
@@ -790,9 +794,10 @@
 }
 
 .storefront-card img {
+	position: absolute;
+	inset: 0;
 	width: 100%;
 	height: 100%;
-	min-height: 280px;
 	object-fit: cover;
 	object-position: center;
 }
@@ -916,7 +921,8 @@
 	display: grid;
 	grid-template-columns: 1.5fr 1fr 1fr 1fr;
 	gap: 2rem;
-	padding: 2.75rem 0 2rem;
+	padding-top: 2.75rem;
+	padding-bottom: 2rem;
 }
 
 .footer-logo {
@@ -1230,7 +1236,28 @@
 
 	.footer-inner {
 		grid-template-columns: 1fr;
-		gap: 1.5rem;
+		gap: 1.4rem;
+		padding-top: 1.75rem;
+		padding-bottom: 1.5rem;
+		padding-left: 1.35rem;
+		padding-right: 1.35rem;
+	}
+
+	.footer-col h4 {
+		margin-bottom: 0.55rem;
+	}
+
+	.footer-brand p {
+		margin: 0.5rem 0 0.85rem;
+		font-size: 0.9rem;
+	}
+
+	.footer-hours,
+	.footer-nav a,
+	.footer-link,
+	.footer-contact a,
+	.footer-col address {
+		font-size: 0.9rem;
 	}
 }
 
