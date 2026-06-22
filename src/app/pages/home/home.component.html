@@ -60,7 +60,10 @@
           </div>
         </div>
         <div class="review-carousel" aria-label="Customer reviews" (mouseenter)="pauseAutoRotate()" (mouseleave)="resumeAutoRotate()">
-          <div class="review-head">Player Reviews</div>
+          <div class="review-head">
+            <span>Player Reviews</span>
+            <a class="review-google" href="https://maps.app.goo.gl/dCn5N2zuDDCyrkYH6" target="_blank" rel="noopener">Read more reviews on Google &#8599;</a>
+          </div>
           <div class="review-content" [class.animate]="isReviewAnimating">
             <blockquote class="review-quote">“{{ reviews[currentReviewIndex].quote }}”</blockquote>
             <div class="review-author">{{ reviews[currentReviewIndex].author }}</div>
